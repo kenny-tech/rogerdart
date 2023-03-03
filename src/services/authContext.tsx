@@ -155,10 +155,9 @@ export const AuthProvider = ({ children }: ProviderProps) => {
   // Sign out
   const signOut = async () => {
     try {
-      await axios.post(`${PUBLIC_BASE_URL}${SIGN_OUT_PUBLIC_API_ROUTE}`);
       setError(undefined);
       setUser(undefined)
-      storageController.clearAll();
+      // storageController.clearAll();
       sessionStorage.clear();
       localStorage.clear();
       Router.replace(`${PAGE_ROUTE_SIGN_IN}`);
