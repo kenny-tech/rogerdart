@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@api/*": ["pages/api/*"],
+      "@models/*":["pages/api/model/*"],
+      "@components/*": ["src/components/*"],
+      "@context/*":["src/context"],
+      "@helpers/*":["src/helpers/*"],
+      "@media/*":["src/media/*"],
+      "@pages/*": ["pages/*"],
+      "@routes/*":["src/services"],
+      "@src/*":["src/*"],
+      "@styles/*":["src/styles/*"],
+      "@types/*":["src/types/*"],
+      "@utils/*":["src/utils"],
+    },
+    "incremental": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "src/context/UserContext.js", "src/component/Banner/index.jsx", "src/component/Dashboard/User/Header.jsx", "src/component/Dashboard/User/Header.jsx", "src/component/Dashboard/User/Header.jsx"],
+  "exclude": ["node_modules"]
+}

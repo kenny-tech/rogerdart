@@ -1,0 +1,403 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    background: #FFBC08;
+    z-index: 12;
+}
+.merchantLogo{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+}
+.merchantLogo>p{
+    margin: 0;
+    padding: 0;
+}
+.navLinks{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.mr5{
+    margin-right: 5rem;
+}
+.mr1{
+    margin-right: 1rem;
+}
+
+.mr1bold{
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.circleText{
+    border:2px solid #FF640D;
+    border-radius: 50%;
+    padding:.3rem;
+}
+.squareText{
+    border:2px solid #FF640D;
+}
+.navBtn{
+    outline:none;
+    border:none;
+    background: #FFCC02;
+    padding:.5rem;
+    font-weight: bold;
+    color:#fff;
+    border-radius:10px;
+    cursor: pointer;
+    box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.151);
+}
+
+.merchantBanner{
+    width: 100%;
+    background: #FFBC08;
+    height: 600px;
+    background-image: url('/uploads/MerchantBanner.png');
+    background-size: cover;
+}
+.bannerText{
+    width: 55%;
+    padding: 5rem 10rem 0;
+}
+.bannerText>h2{
+    font-size: 40px;
+}
+.signupContainer{
+    position: absolute;
+    top: 17rem;
+    left: 10rem;
+    z-index: 10;
+    background: #fff;
+    border-radius: 5px;
+    width: 500px;
+    box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.151);
+    padding: 1rem;
+}
+.iconInput{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding:.5rem;
+    margin-bottom: 1rem;
+}
+.inputGroup{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.inputGroup>input{
+    outline: none;
+    border: 1px solid #ccc !important;
+    border-radius: 8px;
+    padding:.5rem;
+    width: 45%;
+
+}
+.signupContainer>input::placeholder, 
+.inputGroup>input::placeholder,
+.iconInput>input::placeholder{
+    font-weight: bold;
+}
+.signupContainer>input, .signupContainer>select{
+    outline: none;
+    border: 1px solid #ccc !important;
+    border-radius: 8px;
+    padding:.5rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.iconInput>input{
+    border: none;
+    outline: none;
+}
+.locationIcon{
+    width: 15px;
+    height: 15px;
+    margin-right: .4rem;
+}
+
+.signupBtn{
+    padding: 1rem;
+    background: #f9b606;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    align-self: flex-end;
+    cursor: pointer;
+}
+.aboutContainer{
+    width: 100%;
+    padding: 6rem 1rem;
+    background: #FFF3B6;
+    text-align: center;
+}
+.aboutContainer>h2, .faqContainer>h2{
+    font-size: 36px;
+}
+.flexContainer{
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;   
+    text-align: center;
+}
+.flexContainer div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flexContainer p{
+    width: 60%;
+    margin: 0;
+}
+.testimonialContainer{
+    background:#FFBC08;
+    width: 100%;
+    padding: 2rem;
+}
+.testimonialContainer h3, .testimonialContainer p{
+    width: 60%;
+    text-align: left !important;
+}
+.customButton{
+    margin-top:1rem;
+    margin-left: -14rem;
+    padding: .5rem;
+    background: #FFCC02;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;  
+    box-shadow: -2px 2px 6px rgba(0, 0, 0, 0.151);
+}
+.faqContainer{
+    width: 100%;
+    padding: 2rem 1rem;
+    background: #FFF3B6;
+    text-align: center;
+}
+.faqContainer p, .faqContainer h3{
+    text-align: left;
+    width:60%
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+    flex-direction: column;
+}
+.merchantFooterBrand{
+    background:#FFF3B6;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+}
+.merchantFooterBrand a:hover{
+    text-decoration: underline;
+}
+
+.orderInfoBox1, .orderInfoBox2, .orderInfoBox3, .orderInfoBox4, .orderInfoBox5, .orderInfoBox6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 330px;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.orderInfoBox1 {
+    background: #FCA3111A
+}
+
+.orderInfoBox2 {
+    background: #E432251A
+}
+
+.orderInfoBox3 {
+    background: #F9EAFC
+}
+
+.orderInfoBox4 {
+    background: #FCA3111A
+}
+
+.orderInfoBox5 {
+    background: #E432251A;
+}
+
+.orderInfoBox6 {
+    background: #F9EAFC;
+}
+
+.title {
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.amount {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.getStartedDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1041px;
+    height: 283px;
+    background-color: #FCA311;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.getStartedButton {
+    width: 300px;
+    height: 62px;
+    background-color: #fff;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.dottedBox {
+    width: 900px;
+    height: 93px;
+    border: 0.5px dashed #C5C9D5;
+    border-radius: 8px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.label {
+    background-color: #E5FDF2;
+    color: #117B47;
+    padding: 5px;
+    border-radius: '24px';
+  }
+
+  .button {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #FCA311;
+    float: right;
+    position: relative;
+    bottom: 1px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  .buttonText {
+    color: #fff;
+    font-size: 16px; 
+    padding-top: 17px;
+  }
+
+  .labelRemove {
+    background-color: #E5FDF2;
+    color: #AC2E0E;
+    padding: 5px;
+    border-radius: '24px';
+  }
+
+  .buttonRemove {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    border: #AC2E0E solid 1px;
+    float: right;
+    position: relative;
+    bottom: 1px;
+    right: 30px
+  }
+
+  .buttonTextRemove {
+    color: #AC2E0E;
+    font-size: 16px; 
+    padding-top: 17px;
+    cursor: pointer;
+  }
+
+  .addImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 80px;
+    border: 2px dashed #E0E0E0;
+    border-radius: 4px;
+    margin-left: 5px;
+  }
+
+  .error{
+    color: #F00;
+    display: flex;
+    align-items: center;
+    margin-top: .2rem;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    .getStartedDiv {
+        width: 340px;
+    }
+    .getStartedButton {
+        width: 200px;
+    }
+    .dottedBox {
+        width: 300px;
+    }
+    .buttonRemove {
+        width: 100px;
+    }
+    .buttonTextRemove {
+        font-size: 12px; 
+    }
+    .button {
+        width: 300px;
+        position: relative;
+        top: 80px;
+        right: 160px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .buttonText {
+        font-size: 12px; 
+    }
+}
+

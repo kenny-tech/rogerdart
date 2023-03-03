@@ -1,0 +1,28 @@
+
+export const vendorQueries = {
+    FIND_VENDOR_BY_EMAIL: `SELECT id, business_name, email, owner_mobile, owner_address, owner_city, owner_state, store_address, store_city, store_state, role, status, banner FROM vendors WHERE email = ?`,
+    FIND_VENDOR_BY_NAME: `SELECT id, business_name, email, store_address, store_city, store_state, role, status, FROM vendors WHERE business_name = ?`,
+    CREATE_ACCOUNT:`INSERT INTO vendors (business_name, email, owner_address, owner_city, owner_state, business_pass, confirmation_code) VALUES(?, ?, ?, ?, ?, ?, ?)`,
+    FIND_VENDOR_BY_CODE: `SELECT id, business_name, business_pass, confirmation_code, email, owner_mobile, role FROM vendors WHERE confirmation_code = ?`,
+    UPDATE_VENDOR_CONFIRMATION_CODE: `UPDATE vendors SET confirmation_code = null, isActivated = 1 WHERE confirmation_code = ?`,
+    SIGN_IN:`SELECT * FROM vendors WHERE email = ?`,
+    FIND_VENDOR_BY_ID:`SELECT id, business_name, email, owner_mobile, owner_address, owner_city, owner_state, store_address, store_city, store_state, role, status, banner, logo FROM vendors WHERE id = ?`,
+    UPDATE_VENDOR_PERSONAL_INFO:`UPDATE vendors SET  owner_details = ?`,
+    UPDATE_VENDOR_BUSINESS_INFO:`UPDATE vendors SET store_details = ?`,
+    UPDATE_VENDOR_SUBSCRIPTION:`UPDATE vendors SET subscription = ?`,
+    UPDATE_ID_VERIFICATION:`UPDATE vendors SET owner_photo = ?, owner_mobile = ?`,
+    GET_ALL_VENDOR: `SELECT * FROM vendors ORDER BY vendor_id DESC`,
+    GET_VENDOR_BY_ID: `SELECT * FROM vendors WHERE id = ?`,
+    GET_ALL_ORDERS: `SELECT users.first_name, payment.order_no, payment.total, payment.status, payment.created_at FROM payment INNER JOIN users ON payment.user_id = users.id WHERE payment.vendor_id = ? ORDER BY vendor_id DESC`,
+    GET_VENDOR_ORDER_BY_ID: `SELECT users.first_name, users.last_name, users.user_mobile, users.user_email, products.item_name, payment.quantity, payment.order_no, payment.total, payment.status, orders.billing_address, payment.created_at FROM payment INNER JOIN users ON payment.user_id = users.id INNER JOIN products ON payment.product_id = products.id INNER JOIN orders ON payment.order_no = orders.order_no WHERE payment.order_no = ?`,
+    GET_ALL_PRODUCTS: `SELECT * FROM products WHERE vendor_id = ? ORDER BY vendor_id DESC`,
+    CREATE_PRODUCT:`INSERT INTO products (vendor_id, item_name, category_id, item_description, item_price, variants, delivery_time, item_image) VALUES(?, ?, ?, ?, ?, ?, ?, ?)`,
+    EDIT_PRODUCT:`UPDATE products SET item_name = ?, category_id = ?, item_description = ?, item_price = ?, variants = ?, delivery_time = ?, item_image = ? WHERE vendor_id = ?`,
+    GET_PAYMENT:`SELECT transaction_ref AS reference, total AS amount, modified_at AS date, status FROM payment WHERE vendor_id = ? ORDER BY id DESC`,
+    GET_PAYMENT_DETAILS:`SELECT users.last_name, users.username, users.user_mobile, users.user_email, products.item_name AS item, products.variants AS toppings, payment.transaction_ref AS reference, payment.order_no AS order_number, payment.total AS amount, payment.quantity, payment.modified_at AS date, payment.status FROM payment INNER JOIN users ON payment.user_id = users.id INNER JOIN products ON payment.product_id = products.id WHERE payment.id = ?`,
+    
+    FIND_BY_ADDRESS:`SELECT id, banner, business_name, vendor_address FROM vendors WHERE vendor_address LIKE ?`,
+    GET_VENDOR_MENU:`SELECT products.id, vendors.business_name, categories.category_name, products.item_name, products.item_image, products.item_price, products.delivery_time, products.item_description, products.created_at FROM products INNER JOIN vendors ON products.vendor_id = vendors.id INNER JOIN categories ON products.category_id = categories.id WHERE products.vendor_id = ?`,
+    GET_VENDOR_SINGLE_MENU:`SELECT products.id, vendors.business_name, categories.category_name, products.item_name, products.item_image, products.item_price, products.delivery_time, products.item_description, products.created_at FROM products INNER JOIN vendors ON products.vendor_id = vendors.id INNER JOIN categories ON products.category_id = categories.id WHERE products.id = ?`,
+    GET_ALL_VENDOR_BY_ID: `SELECT id, first_name, last_name, username, user_email, user_mobile, user_pass, user_country, linkedin, facebook, created_at FROM users WHERE id = ?`,
+}

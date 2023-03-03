@@ -1,0 +1,103 @@
+.body{
+    background-color: #fff;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../media/img/featuresbg.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    padding: 4rem;
+}
+.body h2{
+    padding-top: 15rem;
+    font-size: 36px;
+    margin-bottom: 5rem;
+    color: #585858;
+}
+.container{
+    margin: 0 auto;
+    text-align: center;
+}
+.container div{
+    display: inline-block;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+.container button{
+    border: none;
+    padding: .8rem;
+    margin-top: .5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fefefe;
+    background-color: #eb332a;
+    cursor: pointer;
+}.container button:hover{
+    background-color: #f71c11;
+}
+.container div:nth-child(1) div{
+    background-color: #ffecd7;
+}
+.container div:nth-child(1) div:hover{
+    background-color: #fcddbb;
+}
+.container div:nth-child(2) div{
+    background-color: #f5f5fb;
+}
+.container div:nth-child(2) div:hover{
+    background-color: #e5e5fa;
+}
+.container div:nth-child(3) div{
+    background-color: #f3f9f4 ;
+}
+.container div:nth-child(3) div:hover{
+    background-color: #dfffe4;
+}
+.container div:nth-child(3) button{
+    background-color: #fff;
+}
+.container h3, .container p{
+    line-height: 14px;
+    margin:.5rem 0;
+    color: #4d4d4d;
+}
+.container div:nth-child(3) p:nth-child(5){
+    color:#fff;
+}
+.size{
+    width: 60px;
+    height: 60px;
+}
+.iconBoxCircle{
+    margin: 0 !important;
+    border-radius: 50%;
+    color: #4d4d4d;
+}
+
+
+@media (max-device-width: 600px) {
+    .container div{
+        margin-bottom:4rem;
+    }  
+    .container div:nth-child(3){
+        margin-bottom: 0 !important;
+    }
+    .body{
+        margin: 0;
+    }
+    .body h2{
+        padding-top: 3rem;
+        text-align: center;
+    } 
+}
+@media (max-width: 500px){
+    .container div{
+        margin-bottom:4rem;
+    }  
+    .container div:nth-child(3){
+        margin-bottom: 0 !important;
+    }
+}

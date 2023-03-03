@@ -1,0 +1,565 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-bottom: 1px solid #eee; */
+    width:100%;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+}
+.navbar h2{
+    font-size:18px;
+    line-height: .5rem;
+    margin-left: .4rem;
+    text-transform: uppercase;
+    color: #eb332a;
+    font-weight: bolder;
+    letter-spacing: .15rem;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.title{
+    margin-top: .5rem;
+    font-weight: bolder;
+    font-size: 32px;
+}
+.infoContainer{
+    margin-bottom: .5rem;
+}
+.info{
+    color: #919191;
+    font-size: 14px;
+    font-weight: bold;
+}
+.link{
+    color:#eb332a;
+    font-weight: bold;
+    font-size: 14px;
+}
+.socialSigninButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    padding:0 20px 0 20px;
+}
+.fb{
+    margin-right: 8px;
+}
+.facebookButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #3b5998;
+    border-radius: 20px;
+    width:100%;
+    height: 40px;
+    padding:.5rem;
+    color: #fff;
+}
+.googleButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    background-color: #4185f6;
+    border-radius: 20px;
+    width:100%;
+    height: 40px;
+    padding:.5rem;
+    color: #fff;
+}
+.appleButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #000;
+    border-radius: 20px;
+    width:100%;
+    height: 40px;
+    padding:.5rem;
+    color: #fff;
+}
+.sectionDivision{
+    margin-top: .5rem;
+    display: flex;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+}
+.boxBefore{
+    display: block;
+    border:0.5px solid #919191;
+    margin-right: 8px;
+    width: 20%;
+}
+.boxAfter{
+    margin-left: 8px;
+    display: block;
+    border:1px solid #919191;
+    width: 20%;
+}
+.divisionText{
+    color:#919191;
+    font-weight: bold;
+    font-size: 12px;
+}
+.formContainer{
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+.inputContainer{
+    margin-top: .2rem;
+    width: 400px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.flex span{
+    color: #585858;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.flex span:hover{
+    color: #333433;
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.15s ease;
+}
+.emailInput{
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.5rem;
+    width: 100%;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+    background-color:#FFF;
+}
+.passwordInput{
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 100%;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+    background-color:#FFF;
+}
+.input{
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 100%;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+    background-color:#FFF;
+}
+.password{
+    border: none;
+    outline: none;
+    height: 40px;
+    width:85%;
+    padding:.3rem;
+    background-color: #FFF;
+}
+.passwordInputBold{
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 100%;
+    border:2px solid #000;
+    align-items: center;
+    background-color:rgb(247, 247, 247);
+}
+.submitButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    background-color: #eb332a;
+    border-radius: 20px;
+    width:400px;
+    border:none;
+    outline: none;
+    height: 50px;
+    padding:.5rem;
+    color: #fff;
+}
+.submitButtonMerchant{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    background-color: #FCA311;
+    border-radius: 20px;
+    width:400px;
+    border:none;
+    outline: none;
+    height: 50px;
+    padding:.5rem;
+    color: #fff;
+}
+.signinWithGoogle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    background-color: #fff;
+    border-radius: 20px;
+    width:400px;
+    border:none;
+    outline: none;
+    height: 50px;
+    padding:.5rem;
+    color: #000;
+}
+.googleButtonSignin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    background-color: #fff;
+    border-radius: 20px;
+    width:28%;
+    height: 50px;
+    padding:.5rem;
+    color: #000;
+    box-shadow: 0.5px 0.5px #888888;
+}
+.submitButton:hover{
+    background-color: rgb(250, 19, 2);
+}
+.toggleVisibilityText{
+    font-weight: bold;
+}
+.toggleVisibilityText:hover{
+    color:#eb332a;
+    cursor: pointer;
+}
+.footer{
+    border-top: 1px solid #e2e2e2;
+    margin-top: 4rem;
+    background-color: rgb(254, 254, 254);
+    display: flex;
+    flex:1;
+    width: 100%;
+}
+.footerLinks{
+    list-style: none;
+    color: #919191;
+    width: 100%;
+}
+.footerLinks li h2{
+    color: #585858;
+    font-size: 16px;
+    font-weight: bold;
+}
+.footerLinks li{
+    font-size: 14px;
+    padding:.2rem 0;
+    font-weight: bold;
+}
+.bottomLinks{
+    color:#919191;
+    font-size: 12px;
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .bottomLinks p{
+    margin-left: .5rem;
+  }
+  .bottomLinks a{
+    margin-left: .5rem;
+    font-weight: bold;
+  }
+  .spread{
+      display: flex;
+      align-items: center;
+  }
+  .spread a{
+      font-weight: bold;
+  }
+  .spread a:hover{
+      color: #eb332a;
+      transition: color 0.55s ease;
+  }
+  .error{
+    color: #F00;
+    display: flex;
+    align-items: center;
+    margin-top: .2rem;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .emailInputError{
+    border:2px solid #f6b725;
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.5rem;
+    width: 100%;
+    align-items: center;
+    background-color:rgb(247, 247, 247);
+} 
+.resetEmailInputError{
+    border:2px solid #f6b725;
+    outline:#f6b725;
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.5rem;
+    width: 100%;
+    align-items: center;
+    background-color:rgb(247, 247, 247);
+} 
+.passwordInputError{
+    border:2px solid #f6b725;
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 100%;
+    align-items: center;
+    background-color:rgb(247, 247, 247);
+}
+.resetPassHeader{
+    display: flex;
+    justify-content: space-between;
+} 
+.forgotPass{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.685);;
+}
+.forgotPassForm{
+    overflow-y: scroll;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    width: 85%;
+    height: 100%;
+    background-color: #FFF;
+    animation: slide 0.1s ease-in-out 0s 1 normal forwards;
+    box-shadow: 7px 10px 11px -9px rgba(0,0,0,0.66);
+}
+.forgotPassForm h2{
+    color: #333433;
+    margin-bottom: 0;
+}
+.forgotPassForm h4{
+    margin-bottom: 2rem;
+    font-size: 12px;
+    font-weight: bold;
+    color: #585858;
+}
+.forgotPassForm h3{
+    color: #585858;
+    font-weight: 400;
+}
+.iconCol{
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+}
+.iconCol p{
+    font-size: 12px;
+    font-weight: bold;
+    color: #669f23;
+}
+.successAnim{
+    animation: success 0.1s ease-in-out 0s 1 normal forwards;
+}
+
+.landscapeLogo{
+    background-size: contain;
+    background-image: url('../media/logo/logolandscape.png');
+    height: 40px;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+}
+
+@keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes success {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .signInSelect{
+    display: flex;
+    width: 100%;
+  }
+  .signInSelect a{
+      width: 50%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  }
+  .signInSelect a p{
+      margin: 0;
+  }
+  .signInSelect a:hover{
+      width: 55%;
+      animation: slideHover 0.1s ease-in-out 0s 1 normal forwards;
+  }
+  .backButton {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+      outline: none;
+      border:none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      width: 7%;
+      border-radius: 5px;
+      background-color: #fff;
+      -webkit-box-shadow:0 6px 18px 0 rgba(0, 0, 0, 0.0.13);
+      -moz-box-shadow:0 6px 18px 0 rgba(0, 0, 0, 0.0.13);
+      box-shadow:0 6px 18px 0 rgba(0, 0, 0, 0.13);
+      font-weight: bold;
+      cursor: pointer;
+  }
+  .orText {
+    color: #BABABA;
+    font-size: 12px;
+  }
+  @keyframes slideHover {
+    0% {
+      width: 50%;
+      transform: translateX(-50px);
+    }
+  
+    50% {
+      width: 70%;
+      transform: translateX(-70px);
+    }
+    100% {
+        width: 100%;
+        transform: translateX(0);
+      }
+  }
+  .signInSelect a:nth-child(1){
+      background-color: #eb332a;
+      color: #fff;
+      font-weight: bold;
+  }
+  .signInSelect a:nth-child(2){
+    font-weight: bold;
+  }
+  .forgotPasswordContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: '400px';
+  }
+  .forgotPassword {
+    margin-left: 140px;
+  }
+@media (max-width: 600px) {
+    .signInSelect{
+        flex-direction: column;
+      }
+    .footer{
+        flex-direction: column;
+        width: 100%;
+        display: block;
+    }
+    .emailInput, .passwordInput{
+        width:100%;
+    }
+    .inputContainer{
+        display: block;
+        align-items: center;
+        width: 300px;
+    }
+    .submitButton, .facebookButton, .appleButton, .googleButton{
+        width: 300px;
+    }
+    .socialSigninButton{
+        width: 350px;
+    }
+    .bottomLinks{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+    .spread{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .googleButtonSignin{
+        width:70%;
+    }
+    .forgotPasswordContainer {
+        width: '300px';
+    }
+    .forgotPassword {
+        margin-left: 40px;
+      }
+}

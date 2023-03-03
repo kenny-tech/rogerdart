@@ -1,0 +1,574 @@
+.darkBG {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 300vw;
+    height: 600vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .center {
+    position: fixed;
+    top: 40%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .modal {
+    width: 500px;
+    height: 640px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .modalLogout {
+    width: 350px;
+    height: 150px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+  
+  .modalHeader {
+    height: 50px;
+    background: white;
+    overflow: hidden;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+  
+  .heading {
+    margin: 0;
+    padding: 25px;
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .headingText {
+    margin: 0;
+    padding: 20px;
+    color: #2c3e50;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .modalContent {
+    padding: 20px;
+    font-size: 14px;
+    color: #2c3e50;
+    text-align: left;
+  }
+  
+  .modalActions {
+    position: absolute;
+    bottom: 2px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .actionsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .closeBtn {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    color: #2c3e50;
+    background: white;
+    transition: all 0.25s ease;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+    position: absolute;
+    right: 0;
+    top: 0;
+    align-self: flex-end;
+    margin-top: 17px;
+    margin-right: 17px;
+  }
+  
+  .closeBtn:hover {
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+    transform: translate(-4px, 4px);
+  }
+  
+  .deleteBtn {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 11px 28px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: none;
+    color: #fff;
+    background: #ff3e4e;
+    transition: all 0.25s ease;
+  }
+  
+  .deleteBtn:hover {
+    box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.6);
+    transform: translateY(-5px);
+    background: #ff3e4e;
+  }
+  
+  .cancelBtn {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 11px 28px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: none;
+    color: #2c3e50;
+    background: #fcfcfc;
+    transition: all 0.25s ease;
+  }
+  
+  .cancelBtn:hover {
+    box-shadow: none;
+    transform: none;
+    background: whitesmoke;
+  }
+
+  .orderDetailsBox {
+    width: 450px;
+    height: 240px;
+    border: solid #CED9E899;
+    padding-left: 15px;
+  }
+
+  .totalBox {
+    width: 450px;
+    height: 100px;
+    border: solid #CED9E899;
+    padding-left: 15px;
+  }
+
+  .input{
+    border-radius: 10px;
+    height:40px;
+    margin: 0;
+    padding:.5rem;
+    width: 95%;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+  }
+
+  .textarea{
+    border-radius: 10px;
+    height:35px;
+    margin: 0;
+    padding:.5rem;
+    width: 405px;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+  }
+
+  .modalCart {
+    width: 500px;
+    height: 600px;
+    background: white;
+    color: white;
+    z-index: 1;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .orderInputBox {
+    width: 450px;
+    height: 300px;
+    border: solid #CED9E899;
+    padding: 15px;
+  }
+
+  .textInput{
+    border-radius: 10px;
+    height:40px;
+    margin: 0;
+    padding:.5rem;
+    width: 400px;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid #979797;
+    border-radius: 8px;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .modaCoupon {
+    width: 470px;
+    height: 500px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .inputBox {
+    width: 450px;
+    height: 300px;
+    padding: 15px;
+  }
+
+  .modalAdmin {
+    width: 350px;
+    height: 170px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .modalDeleteProduct {
+    width: 350px;
+    height: 170px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .centeredAdminModal {
+    position: fixed;
+    top: 50%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .centeredDeleteProductModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .closeBtnAdmin {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    color: #2c3e50;
+    background: white;
+    transition: all 0.25s ease;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+    position: absolute;
+    right: 72%;
+    top: 0;
+    align-self: flex-end;
+    margin-top: 17px;
+    margin-right: 50px;
+  }
+
+  .closeBtnDeleteProduct {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    color: #2c3e50;
+    background: white;
+    transition: all 0.25s ease;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+    position: absolute;
+    right: 72%;
+    top: 0;
+    align-self: flex-end;
+    margin-top: 17px;
+    margin-right: -230px;
+  }
+
+  .buttonCancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid #979797;
+    border-radius: 8px;
+    width: 100px;
+    height: 40px;
+    border-radius: 40px;
+  }
+
+  .buttonRemove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    width: 100px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: #AC2E0E;
+  }
+
+  .headingCenter {
+    margin: 0;
+    padding: 25px;
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .inviteAdmin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: 300px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: #FCA311;
+    margin-left: 10px;
+  }
+
+  .modalCheckout {
+    width: 500px;
+    height: 625px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .textInputVariant{
+    border-radius: 10px;
+    height:40px;
+    margin: 0;
+    padding:.5rem;
+    width: 160px;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+  }
+
+  .addVariantButton {
+    width: 55px;
+    height: 35px;
+    border: 1px solid #FCA311;
+    border-radius: 6px;
+    padding-top: 5px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+  }
+
+  .buttonVariantText {
+    color:  #FCA311;
+    font-size: 14px;
+  }
+
+  .save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 45px;
+    border-radius: 30px;
+    background-color: #FCA311;
+  }
+
+  .cancel {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 45px;
+    border-radius: 30px;
+    border: #AC2E0E solid 1px;
+    margin-right: 15px;
+  }
+
+  .optionShow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 400px;
+  }
+
+  .optionHide {
+    display: none;
+  }
+
+
+  .modalVariant {
+    width: 470px;
+    height: 585px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .cartHeading {
+    margin: 0;
+    padding: 20px;
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: left;
+  }
+
+  .modalConfirmPayment {
+    width: 500px;
+    height: 550px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .closeBtnCheckout {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    color: #2c3e50;
+    background: white;
+    transition: all 0.25s ease;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+    position: absolute;
+    right: 72%;
+    top: 0;
+    align-self: flex-end;
+    margin-top: 17px;
+    margin-right: 50px;
+    width: 10px;
+  }
+
+  .dateInput{
+    border-radius: 10px;
+    height:40px;
+    margin: 0;
+    padding:.5rem;
+    width: 90%;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+  }
+
+  .darkBGCheckout {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 300vw;
+    height: 600vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+
+  .modaRating {
+    width: 450px;
+    height: 280px;
+    background: white;
+    color: white;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  @media (max-width: 600px) {
+    .cartContainer{
+        width: 100%;
+        z-index: -1;
+    }
+    .sortOption {
+        width: 220px;
+        height: 30px;
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 14px;
+    }
+    .sortBy {
+        margin-left: 15px;
+        margin-right: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        align-content: center;
+    
+    }
+    .sortByText {
+        font-size: 14px;
+    }
+    .search {
+        margin-left: 10px;
+        position: relative;
+        bottom: 30px;
+        margin-top: 40px;
+      }
+      .filter {
+        position: relative;
+        bottom: 50px;
+        margin-top: 150px;
+        right: 270px
+      }
+      .nextButton {
+        width: 120px;
+        position: relative;
+        bottom: 95px;
+        margin-top: 80px;
+      }
+      .previousButton {
+        width: 120px;
+      }
+      .variantIcons {
+        margin-left: 120px;
+      }
+      .variantText {
+        font-size: 12px;
+      }
+      .searchInput{
+        margin: 0;
+        padding:.5rem;
+        width: 80%;
+        border: none;
+    }
+    
+}
+
+
+
+
+
+
+

@@ -1,0 +1,544 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    width:100%;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+}
+.navbar h2{
+    font-size:18px;
+    line-height: .5rem;
+    margin-left: .4rem;
+    text-transform: uppercase;
+    color: rgb(250, 52, 2);
+    font-weight: bolder;
+    letter-spacing: .15rem;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.title{
+    margin-top: .5rem;
+    font-weight: bolder;
+    font-size: 32px;
+}
+.infoContainer{
+    margin-bottom: .5rem;
+}
+.info{
+    color: #919191;
+    font-size: 14px;
+    font-weight: bold;
+}
+.link{
+    color:rgb(250, 52, 2);
+    font-weight: bold;
+    font-size: 14px;
+}
+.socialSigninButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    padding:0 20px 0 20px;
+}
+.fb{
+    margin-right: 8px;
+}
+.facebookButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #3b5998;
+    border-radius: 20px;
+    width:100%;
+    height: 40px;
+    padding:.5rem;
+    color: #fff;
+}
+.googleButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    background-color: #4185f6;
+    border-radius: 20px;
+    width:100%;
+    height: 40px;
+    padding:.5rem;
+    color: #fff;
+}
+.appleButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #000;
+    border-radius: 20px;
+    width:100%;
+    height: 40px;
+    padding:.5rem;
+    color: #fff;
+}
+.sectionDivision{
+    margin-top: .5rem;
+    display: flex;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+}
+.boxBefore{
+    display: block;
+    border:0.5px solid #919191;
+    margin-right: 8px;
+    width: 20%;
+}
+.boxAfter{
+    margin-left: 8px;
+    display: block;
+    border:1px solid #919191;
+    width: 20%;
+}
+.divisionText{
+    color:#919191;
+    font-weight: bold;
+    font-size: 12px;
+}
+.formContainer{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+.inputContainer{
+    margin-top: .2rem;
+    width: 300px;
+    margin-bottom: 1rem;
+}
+.inputContainer1{
+    margin-top: .2rem;
+    width: 500px;
+}
+.nameInputContainer{
+    margin-top: .2rem;
+    width: 200px;
+    margin-bottom: 1rem;
+}
+.mobileInputContainer{
+    margin-top: .2rem;
+    width: 250px;
+}
+.codeInputContainer{
+    margin-top: .2rem;
+    width: 130px;
+}
+.nameInput{
+    display:flex;
+    width: 500px;
+    justify-content: space-between;
+    margin-left: -100px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.flex span{
+    color: #919191;
+    font-size: 14px;
+    font-weight: bold;
+}
+.emailInput{
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.5rem;
+    width: 280px;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+    background-color: #FFF;
+}
+.emailInput >input[type='file']{
+    display: none;
+}
+
+.mobileInput{
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    font-weight: bold;
+    padding:.5rem;
+    width: 100%;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+    background-color:rgb(247, 247, 247);
+}
+.passwordInput{
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 100%;
+    border:2px solid #000;
+    align-items: center;
+    background-color:#FFF;
+}
+.input{
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 95%;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+    background-color:#FFF;
+}
+.password{
+    border: none;
+    outline: none;
+    height: 40px;
+    width:82%;
+    padding:.3rem;
+    background-color:#FFF;
+}
+.confirmPassword{
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 280px;
+    border:1px solid rgb(235, 235, 235);
+    align-items: center;
+    background-color:#FFF;
+}
+.password1{
+    border: none;
+    outline: none;
+    height: 40px;
+    width:82%;
+    padding:.3rem;
+    background-color:rgb(247, 247, 247);
+}
+.disabledButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+    cursor: not-allowed;
+    background-color: rgb(250, 52, 2);
+    border-radius: 20px;
+    width:400px;
+    border:none;
+    outline: none;
+    height: 50px;
+    padding:.5rem;
+    color: #fff;
+}
+.submitButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+    cursor: pointer;
+    background-color: rgb(250, 52, 2);
+    border-radius: 20px;
+    width:400px;
+    border:none;
+    outline: none;
+    height: 50px;
+    padding:.5rem;
+    color: #fff;
+}
+.submitButtonMerchant{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+    cursor: pointer;
+    background-color: #FCA311;
+    border-radius: 20px;
+    width:400px;
+    border:none;
+    outline: none;
+    height: 40px;
+    padding:.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.submitButton:hover, .disabledButton:hover{
+    background-color: rgb(250, 52, 2);
+}
+.toggleVisibilityText{
+    font-weight: bold;
+}
+.toggleVisibilityText:hover{
+    color:rgb(250, 52, 2);
+    cursor: pointer;
+}
+.footer{
+    border-top: 1px solid #e2e2e2;
+    margin-top: 4rem;
+    background-color: rgb(254, 254, 254);
+    display: flex;
+    flex:1;
+    width: 100%;
+}
+.footerLinks{
+    list-style: none;
+    color: #919191;
+    width: 100%;
+}
+.footerLinks li h2{
+    color: #585858;
+    font-size: 16px;
+    font-weight: bold;
+}
+.footerLinks li{
+    font-size: 14px;
+    padding:.2rem 0;
+    font-weight: bold;
+}
+.bottomLinks{
+    color:#919191;
+    font-size: 12px;
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .bottomLinks p{
+    margin-left: .5rem;
+  }
+  .bottomLinks a{
+    margin-left: .5rem;
+    font-weight: bold;
+  }
+  .spread{
+      display: flex;
+      align-items: center;
+  }
+  .spread a{
+      font-weight: bold;
+  }
+  .spread a:hover{
+      color: rgb(250, 52, 2);
+      transition: color 0.55s ease;
+  }
+  .error{
+      /* color:#f6b725; */
+      color: #F00;
+      display: flex;
+      align-items: center;
+      margin-top: .2rem;
+      font-size: 12px;
+      font-weight: bold;
+  }
+  .emailInputError{
+    border:2px solid #f6b725;
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.5rem;
+    width: 280px;
+    align-items: center;
+    background-color:rgb(247, 247, 247);
+} 
+.passwordInputError{
+    border:2px solid #f6b725;
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 93%;
+    align-items: center;
+    background-color:rgb(247, 247, 247);
+} 
+.passwordConfirmInputError{
+    border:2px solid #f6b725;
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 280px;
+    align-items: center;
+    background-color:rgb(247, 247, 247);
+} 
+.passwordConfirmError{
+    border:2px solid #f6b725;
+    border-radius: 10px;
+    height:50px;
+    margin: 0;
+    padding:.2rem;
+    width: 100%;
+    align-items: center;
+    background-color:rgb(247, 247, 247);
+} 
+.bottomInfo{
+    color:#919191;
+    width: 800px;
+    margin-left: -30px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    line-height: 1.4rem;
+}
+.bottomInfo span a {
+    font-weight: bold;
+    margin-left: .2rem;
+    margin-right: .2rem;
+    color: rgb(250, 52, 2);
+    text-decoration: underline;
+}
+.horizontalLine {
+    width:42%;
+    height:1px;
+    background-color: #E0E0E0;
+    border: none;
+    text-align: center;
+    margin-left: 460px;
+}
+.googleButtonSignup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    background-color: #fff;
+    border-radius: 20px;
+    width:28%;
+    height: 50px;
+    padding:.5rem;
+    color: #000;
+    box-shadow: 0.5px 0.5px #888888;
+}
+.orText {
+    color: #BABABA;
+    font-size: 12px;
+}
+
+.inputText {
+    width: 190px
+}
+
+.inputTextFullwidth {
+    width: 400px
+}
+
+.line { 
+    width: 42%;
+    height:1px; 
+    background-color: #E0E0E0;
+    border: none;
+    margin-left: 45px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .footer{
+        flex-direction: column;
+        width: 100%;
+        display: block;
+    }
+    .emailInput, .passwordInput{
+        width:95%;
+    }
+    .inputContainer{
+        display: block;
+        align-items: center;
+        width: 300px;
+    }
+    .submitButton, .facebookButton, .appleButton, .googleButton{
+        width: 300px;
+    }
+    .socialSigninButton{
+        width: 350px;
+    }
+    .bottomLinks{
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+    .spread{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nameInput{
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0px;
+    }
+    .nameInputContainer{
+        display: block;
+        align-items: center;
+        width: 300px;
+    }
+    .horizontalLine {
+        display: none;
+    }
+    .googleButtonSignup{
+        width:70%;
+    }
+    .signinLink {
+        cursor: pointer;
+        color: #091D8F;
+    }
+    .inputText {
+        width: 400px;
+        margin-bottom: 5px;
+    }
+    .password{
+        width:82%;
+    }
+    .bottomInfo{
+        color:#919191;
+        width: 300px;
+        margin-left: -30px;
+        font-size: 10px;
+        text-align: center;
+        align-items: center;
+        line-height: 1.4rem;
+    }
+}
+.confirmationBox{
+    margin: 0 auto;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom:0;
+    width: 100%;
+    height: 100%;
+    z-index: 1009;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.281);
+}
