@@ -391,7 +391,7 @@
 .searchInput{
     margin: 0;
     padding:.5rem;
-    width: 100%;
+    width: 95%;
     border: none;
 }
 .searchInputDiv {
@@ -850,6 +850,10 @@
       }
       .searchInputDiv {
         width: 90%;
+    }
+    .searchInput{
+      width: 80%;  
+      font-size: 14px;
     }
     .menuDiv {
       width: 220px;
