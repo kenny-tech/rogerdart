@@ -137,8 +137,7 @@ export const AuthProvider = ({ children }: ProviderProps) => {
         sessionStorage.setItem("userid", res.data.data.id);
         sessionStorage.setItem("isLoggedIn", "true");
         if(res.data.data.userType === 'CUSTOMER') {
-          successAlert(res.data.message);
-          Router.replace(`${VENDOR_PAGE_ROUTE}`)
+          Router.replace(`${VENDOR_PAGE_ROUTE}`);
         } else {
           errorAlert('Invalid Login')
           Router.reload();

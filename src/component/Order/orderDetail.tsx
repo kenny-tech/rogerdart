@@ -1,51 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import * as Icon from "@heroicons/react/outline";
-import { PUBLIC_BASE_URL, ORDERS_PUBLIC_API_ROUTE } from "@src/services/routes";
-import axios from "axios";
 import { orderStyles } from "@src/styles";
 
 const OrderDetail: NextPage = () => {
 
     const Router = useRouter();
-    const user_token = sessionStorage.getItem("usertoken");
-    const [loading, setLoading] = useState(false);
     const [orders, setOrders] = useState<any>([]);
     const query = Router.query;
-    const orderNumber = query.orderNo;
+    const orderNumber = query.order_no;
+    const orderData:any = query.data;
+
     console.log('order Number : ',orderNumber);
-
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${user_token}`
-    }
-
-    useEffect(() => {
-        getOrders();
-    }, []);
-
-    const getOrders = async () => {
-        try {
-            setLoading(true);
-            await axios.get(`${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}`, {
-                headers: headers
-            })
-                .then((response) => {
-                    // console.log(response.data.data[0].orderItems);
-                    console.log('orders: ', response.data.data);
-                    setOrders(response.data.data);
-                    setLoading(false);
-                })
-                .catch((error) => {
-                    console.log(error);
-                    setLoading(false);
-                })
-        } catch (error) {
-            console.log(error);
-            setLoading(false);
-        }
-    }
+    console.log('order DATA : ',JSON.parse(orderData));
+    console.log('type of order DATA : ',typeof JSON.parse(orderData));
 
     return (
         <div>
@@ -56,7 +25,7 @@ const OrderDetail: NextPage = () => {
                             <div className="row" style={{ backgroundColor: '#F9F8F8', height: '500px', marginLeft: '12px', marginRight: '12px' }}>
                                 <div className="col-md-3 mt-4">
                                     <p style={{ fontSize: '16px', fontWeight: '600px', marginBottom: '40px' }}>Customer Details</p>
-                                    {orders && orders.filter((item:any) => item.orderNo === orderNumber).map((order: {
+                                    {orders && orders.filter((item:any) => item.orderNo === 40).map((order: {
                                         _id: React.Key | string 
                                         delivery: any;
                                         orderNo: string;

@@ -50,6 +50,13 @@ const Orders: NextPage = () => {
         }
     }
 
+    const handleOrderClick = (order_no: any) => {
+        Router.push({
+            pathname: `${ORDER_DETAIL_PAGE_ROUTE}`,
+            query: { order_no: order_no, data: JSON.stringify(orders) },
+        }, `${ORDER_DETAIL_PAGE_ROUTE}`);
+    }
+
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
     const currentRecords = orders.slice(indexOfFirstRecord, indexOfLastRecord);
@@ -164,21 +171,14 @@ const Orders: NextPage = () => {
                                         orderNo: string | number;
                                         totalPrice: number;
                                         status: string
-                                    }) => <Link href={{
-                                        pathname: ORDER_DETAIL_PAGE_ROUTE,
-                                        query: {
-                                            orderNo: order.orderNo,
-                                        },
-                                    }}>
-                                            <tr style={{ cursor: 'pointer' }}>
+                                    }) => <tr style={{ cursor: 'pointer' }} onClick={() => handleOrderClick(order.orderNo)}>
                                                 <th style={{ fontWeight: 'normal' }} className="d-none d-sm-table-cell">{order.delivery.firstName}</th>
                                                 <td>{order.orderNo}</td>
                                                 <td>{order.totalPrice}</td>
                                                 <td className="d-none d-sm-table-cell">24th Apr, 2022</td>
                                                 <td><span className={orderStyles.processing}>{order.status}</span></td>
                                                 <td className="d-none d-sm-table-cell">{'>'}</td>
-                                            </tr>
-                                        </Link>
+                                        </tr>
                                     )}
                                     {/* <Link href={ORDER_DETAIL_PAGE_ROUTE}>
                                         <tr style={{ cursor: 'pointer' }}>
