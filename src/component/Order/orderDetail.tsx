@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import * as Icon from "@heroicons/react/outline";
@@ -11,10 +11,17 @@ const OrderDetail: NextPage = () => {
     const query = Router.query;
     const orderNumber = query.order_no;
     const orderData:any = query.data;
+    const [userOrders, setUserOrders] = useState<any>([]);
 
     console.log('order Number : ',orderNumber);
     console.log('order DATA : ',JSON.parse(orderData));
     console.log('type of order DATA : ',typeof JSON.parse(orderData));
+    console.log('order DATA  1: ',JSON.parse(orderData));
+
+
+    useEffect(() => {
+        setUserOrders(orderData);
+    }, [])
 
     return (
         <div>
@@ -25,7 +32,7 @@ const OrderDetail: NextPage = () => {
                             <div className="row" style={{ backgroundColor: '#F9F8F8', height: '500px', marginLeft: '12px', marginRight: '12px' }}>
                                 <div className="col-md-3 mt-4">
                                     <p style={{ fontSize: '16px', fontWeight: '600px', marginBottom: '40px' }}>Customer Details</p>
-                                    {orders && orders.filter((item:any) => item.orderNo === 40).map((order: {
+                                    {userOrders && userOrders.filter((item:any) => item.orderNo === 40).map((order: {
                                         _id: React.Key | string 
                                         delivery: any;
                                         orderNo: string;

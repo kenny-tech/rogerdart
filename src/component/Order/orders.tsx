@@ -17,7 +17,7 @@ const Orders: NextPage = () => {
     const [orders, setOrders] = useState<any>([]);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [recordsPerPage] = useState(10);
+    const [recordsPerPage] = useState(15);
 
     const headers = {
         'Content-Type': 'application/json',

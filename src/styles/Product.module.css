@@ -798,6 +798,7 @@
 @media (max-width: 600px) {
     .cartContainer{
         width: 100%;
+        z-index: -1;
     }
     .cartDiv{
       width: 100%;
@@ -847,6 +848,14 @@
       .variantText {
         font-size: 12px;
       }
+      .searchInputDiv {
+        width: 90%;
+    }
+    .menuDiv {
+      width: 220px;
+      height: 200px;
+      z-index: 0;
+  }
     
 }
 
