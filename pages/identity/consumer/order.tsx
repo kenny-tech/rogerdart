@@ -4,7 +4,6 @@ import Head from "next/head";
 import { Navigation, PageInfo } from "@src/component";
 import Sidebar from "@src/component/Sidebar";
 import { orderStyles } from "@src/styles";
-import SearchBox from "@src/component/Order/searchBox";
 import Orders from "@src/component/Order/orders";
 import withAuth from "@src/services/withAuth";
 
@@ -29,7 +28,7 @@ const Order: NextPage = () => {
                                     <div className={orderStyles.content}>
                                         <div className={orderStyles.heading}>
                                             <div className="row">
-                                                <SearchBox />
+                                                {/* <SearchBox /> */}
                                                 <div className="mt-4"></div>
                                                 {/* <div className={orderStyles.orderHeadings}>
                                                     <p style={{fontSize: '16px', fontWeight: 400}}>Order</p>

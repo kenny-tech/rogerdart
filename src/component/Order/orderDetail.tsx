@@ -13,10 +13,10 @@ const OrderDetail: NextPage = () => {
     const orderData:any = query.data;
     const [userOrders, setUserOrders] = useState<any>([]);
 
-    console.log('order Number : ',orderNumber);
-    console.log('order DATA : ',JSON.parse(orderData));
-    console.log('type of order DATA : ',typeof JSON.parse(orderData));
-    console.log('order DATA  1: ',JSON.parse(orderData));
+    // console.log('order Number : ',orderNumber);
+    // console.log('order DATA : ',JSON.parse(orderData));
+    // console.log('type of order DATA : ',typeof JSON.parse(orderData));
+    // console.log('order DATA  1: ',JSON.parse(orderData));
 
 
     useEffect(() => {
@@ -32,7 +32,7 @@ const OrderDetail: NextPage = () => {
                             <div className="row" style={{ backgroundColor: '#F9F8F8', height: '500px', marginLeft: '12px', marginRight: '12px' }}>
                                 <div className="col-md-3 mt-4">
                                     <p style={{ fontSize: '16px', fontWeight: '600px', marginBottom: '40px' }}>Customer Details</p>
-                                    {userOrders && userOrders.filter((item:any) => item.orderNo === 40).map((order: {
+                                    {/* {userOrders && userOrders.filter((item:any) => item.orderNo === 40).map((order: {
                                         _id: React.Key | string 
                                         delivery: any;
                                         orderNo: string;
@@ -49,7 +49,7 @@ const OrderDetail: NextPage = () => {
                                         )
                                     }
                                     
-                                )}
+                                )} */}
                                 </div>
                                 <div className="col-md-4 pt-4" style={{ backgroundColor: '#FFF' }}>
                                     <p style={{ fontSize: '16px', fontWeight: '600px' }}>Order Items</p>
