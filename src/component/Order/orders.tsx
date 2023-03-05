@@ -32,9 +32,9 @@ const Orders: NextPage = () => {
         getOrders('All');
     }, []);
 
-    const getOrders = async (orderStatus:string) => {
+    const getOrders = async (orderStatus='All') => {
         try {
-            let orderUrl;
+            let orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}`;
             
             setLoading(true);
             if(orderStatus === 'Pending') {
@@ -42,12 +42,10 @@ const Orders: NextPage = () => {
             } else if(orderStatus === 'Processing') {
                 orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}?status=paid`
             } else if(orderStatus === 'Delivered') {
-                orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}`
+                orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}?status=paid`
             } else {
                 orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}`
             }
-
-            console.log('order url: ', orderUrl);
 
             await axios.get(orderUrl, {
                 headers: headers
@@ -77,7 +75,6 @@ const Orders: NextPage = () => {
 
     const handleFilterOrder = (e:any) => {
         let orderStatus = e.target.value;
-        console.log('order status: ',orderStatus);
         if(orderStatus === 'All') {
             getOrders(orderStatus);
         } else if (orderStatus === 'Pending') {

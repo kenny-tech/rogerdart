@@ -31,7 +31,10 @@ const OrderDetail: NextPage = () => {
                         <div style={{ marginLeft: '-10px', marginRight: '10px' }}>
                             <div className="row" style={{ backgroundColor: '#F9F8F8', height: '500px', marginLeft: '12px', marginRight: '12px' }}>
                                 <div className="col-md-3 mt-4">
-                                    <p style={{ fontSize: '16px', fontWeight: '600px', marginBottom: '40px' }}>Customer Details</p>
+                                    <p style={{fontSize: '14px', fontWeight: '600px'}}>Customer Details</p>
+                                    <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '20px'}}><Icon.UserIcon width={15} height={15}/>  Angie</p>
+                                    <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '20px'}}><Icon.PhoneIcon width={15} height={15}/>  +2348022332233</p>
+                                    <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '20px'}}><Icon.MailIcon width={15} height={15}/>  abc@gmail.com</p>
                                     {/* {userOrders && userOrders.filter((item:any) => item.orderNo === 40).map((order: {
                                         _id: React.Key | string 
                                         delivery: any;
