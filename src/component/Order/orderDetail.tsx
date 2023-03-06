@@ -1,27 +1,57 @@
 import { useEffect, useState } from "react";
 import { NextPage } from "next";
+import axios from "axios";
 import { useRouter } from "next/router";
 import * as Icon from "@heroicons/react/outline";
 import { orderStyles } from "@src/styles";
+import { PUBLIC_BASE_URL, ORDER_PUBLIC_API_ROUTE } from "@src/services/routes";
+
 
 const OrderDetail: NextPage = () => {
 
     const Router = useRouter();
+    const user_token = sessionStorage.getItem("usertoken");
     const [orders, setOrders] = useState<any>([]);
+    const [loading, setLoading] = useState(false);
     const query = Router.query;
     const orderNumber = query.order_no;
-    const orderData:any = query.data;
-    const [userOrders, setUserOrders] = useState<any>([]);
-
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user_token}`
+    }
+    // const orderData:any = query.data;
     // console.log('order Number : ',orderNumber);
-    // console.log('order DATA : ',JSON.parse(orderData));
+    // console.log('order : ',JSON.parse(orderData));
     // console.log('type of order DATA : ',typeof JSON.parse(orderData));
-    // console.log('order DATA  1: ',JSON.parse(orderData));
+    // console.log('order 1: ',JSON.parse(orderData));
 
 
     useEffect(() => {
-        setUserOrders(orderData);
+        getOrders();
     }, [])
+
+    const getOrders = async () => {
+        try {
+            setLoading(true);
+            let orderUrl = `${PUBLIC_BASE_URL}${ORDER_PUBLIC_API_ROUTE}/${orderNumber}`;
+            console.log('order url: ', orderUrl)
+            await axios.get(orderUrl, {
+                headers: headers
+            })
+            .then((response) => {
+                console.log('order details: ',response.data.data);
+                setOrders(response.data.data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                setLoading(false);
+            })
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    }
 
     return (
         <div>
@@ -31,31 +61,13 @@ const OrderDetail: NextPage = () => {
                         <div style={{ marginLeft: '-10px', marginRight: '10px' }}>
                             <div className="row" style={{ backgroundColor: '#F9F8F8', height: '500px', marginLeft: '12px', marginRight: '12px' }}>
                                 <div className="col-md-3 mt-4">
-                                    <p style={{fontSize: '14px', fontWeight: '600px'}}>Customer Details</p>
-                                    <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '20px'}}><Icon.UserIcon width={15} height={15}/>  Angie</p>
-                                    <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '20px'}}><Icon.PhoneIcon width={15} height={15}/>  +2348022332233</p>
-                                    <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '20px'}}><Icon.MailIcon width={15} height={15}/>  abc@gmail.com</p>
-                                    {/* {userOrders && userOrders.filter((item:any) => item.orderNo === 40).map((order: {
-                                        _id: React.Key | string 
-                                        delivery: any;
-                                        orderNo: string;
-                                    }) => {
-                                        console.log('Delivery details: ',order.delivery);
-                                        
-                                        return (
-                                            <div>
-                                                <p style={{ fontSize: '14px', fontWeight: '400px', marginBottom: '30px' }}><Icon.UserIcon width={15} height={15} /> {order.orderNo}</p>
-                                                <p style={{ fontSize: '14px', fontWeight: '400px', marginBottom: '30px' }}><Icon.UserIcon width={15} height={15} /> {order.delivery.firstName}</p>
-                                                <p style={{ fontSize: '14px', fontWeight: '400px', marginBottom: '30px' }}><Icon.PhoneIcon width={15} height={15} />{order.delivery.phone}</p>
-                                                <p style={{ fontSize: '14px', fontWeight: '400px', marginBottom: '30px' }}><Icon.MailIcon width={15} height={15} />  abc@gmail.com</p>
-                                            </div>
-                                        )
-                                    }
-                                    
-                                )} */}
+                                    <p style={{fontSize: '18px', fontWeight: '600px'}}>Customer Details</p>
+                                    {/* <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '20px'}}><Icon.UserIcon width={15} height={15}/> {orders.delivery.firstName} {orders.delivery.lastName}</p>
+                                    <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '20px'}}><Icon.PhoneIcon width={15} height={15}/> {orders.delivery.phone} </p>
+                                    <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '20px'}}><Icon.HomeIcon width={15} height={15}/> {orders.delivery.address}</p> */}
                                 </div>
                                 <div className="col-md-4 pt-4" style={{ backgroundColor: '#FFF' }}>
-                                    <p style={{ fontSize: '16px', fontWeight: '600px' }}>Order Items</p>
+                                    <p style={{ fontSize: '18px', fontWeight: '600px' }}>Order Items</p>
                                     <br />
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                                         <div>

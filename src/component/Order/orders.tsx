@@ -4,14 +4,12 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import * as Icon from "@heroicons/react/outline";
-import { PUBLIC_BASE_URL, ORDERS_PUBLIC_API_ROUTE, PAGE_ROUTE_SIGN_IN, ORDER_DETAIL_PAGE_ROUTE } from "@src/services/routes";
+import { PUBLIC_BASE_URL, ORDERS_PUBLIC_API_ROUTE, ORDER_DETAIL_PAGE_ROUTE } from "@src/services/routes";
 import axios from "axios";
 import { orderStyles } from "@src/styles";
 import { Spinner } from "@src/component";
 import Pagination from "../Pagination";
 import { orderStatus } from "@src/constants";
-import order from "@pages/merchant/order";
-
 
 const Orders: NextPage = () => {
 
@@ -69,7 +67,8 @@ const Orders: NextPage = () => {
     const handleOrderClick = (order_no: any) => {
         Router.push({
             pathname: `${ORDER_DETAIL_PAGE_ROUTE}`,
-            query: { order_no: order_no, data: JSON.stringify(orders) },
+            query: { order_no: order_no },
+            // query: { order_no: order_no, data: JSON.stringify(orders) },
         }, `${ORDER_DETAIL_PAGE_ROUTE}`);
     }
 

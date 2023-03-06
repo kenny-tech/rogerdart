@@ -18,6 +18,7 @@ export const POPULAR_VENDORS_PUBLIC_API_ROUTE = 'vendors/popular/fetch';
 export const VENDOR_MENU_ROUTE = 'vendor/products/fetch';
 
 export const ORDERS_PUBLIC_API_ROUTE = 'user/orders/fetch';
+export const ORDER_PUBLIC_API_ROUTE = 'user/order/fetch';
 export const PRODUCTS_PUBLIC_API_ROUTE = 'products';
 export const PRODUCTS_SINGLE_PUBLIC_API_ROUTE = 'products/vendor';
 export const CATEGORIES_PUBLIC_API_ROUTE = 'categories';
