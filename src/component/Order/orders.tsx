@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import Image from "next/image";
 import * as Icon from "@heroicons/react/outline";
 import { PUBLIC_BASE_URL, ORDERS_PUBLIC_API_ROUTE, ORDER_DETAIL_PAGE_ROUTE } from "@src/services/routes";

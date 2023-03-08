@@ -212,7 +212,7 @@ const BusinessInfo: NextPage = () => {
                 headers: headers
             })
             .then((response) => {
-                console.log('Profile : ', response.data.data);
+                // console.log('Profile : ', response.data.data);
                 setBusinessName(response.data.data.kyc.businessName);
                 setBusinessRegNo(response.data.data.kyc.businessNumber);
                 setBusinessType(response.data.data.kyc.businessType);
