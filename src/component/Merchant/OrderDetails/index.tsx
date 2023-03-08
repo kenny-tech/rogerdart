@@ -1,120 +1,165 @@
 import { NextPage } from "next";
+import { useEffect, useState } from "react";
 import { orderStyles } from "@src/styles";
 import * as Icon from "@heroicons/react/outline";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/router";
 import { ORDER_MERCHANT_PAGE_ROUTE } from "@src/services/routes";
+import { PUBLIC_BASE_URL, ORDER_PUBLIC_API_ROUTE } from "@src/services/routes";
+import { Spinner } from "@src/component";
 
 const OrderDetail: NextPage = () => {
+
+    const Router = useRouter();
+    const user_token = sessionStorage.getItem("usertoken");
+    const [orders, setOrders] = useState<any>([]);
+    const [loading, setLoading] = useState(false);
+    const [delivery, setDelivery] = useState<any>();
+    const [orderItems, setOrderItems] = useState<any>([]);
+    const [firstName, setFirstName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
+    const [phone, setPhone] = useState<string>('');
+    const [address, setAddress] = useState<string>('');
+    const [status, setStatus] = useState<string>('');
+    const [total, setTotal] = useState<number>(0);
+
+    const query = Router.query;
+    const orderNumber = query.order_no;
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${user_token}`
+    }
+
+    useEffect(() => {
+        getOrders();
+    }, [])
+
+    const getOrders = async () => {
+        try {
+            setLoading(true);
+            let orderUrl = `${PUBLIC_BASE_URL}${ORDER_PUBLIC_API_ROUTE}/${orderNumber}`;
+            console.log('order url: ', orderUrl)
+            await axios.get(orderUrl, {
+                headers: headers
+            })
+                .then((response) => {
+                    setFirstName(response.data.data.delivery.firstName);
+                    setLastName(response.data.data.delivery.lastName);
+                    setPhone(response.data.data.delivery.phone);
+                    setAddress(response.data.data.delivery.address);
+                    setOrderItems(response.data.data.orderItems);
+                    setTotal(response.data.data.totalPrice);
+                    setStatus(response.data.data.status);
+                    setLoading(false);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    setLoading(false);
+                })
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    }
     return (
         <>
-        <Link href={ORDER_MERCHANT_PAGE_ROUTE}>
-            <p style={{marginLeft: '20px', cursor:'pointer'}}><Icon.ArrowLeftIcon width={15} height={15}/>Back</p>
-        </Link>
-        <div className="row" style={{backgroundColor: '#F9F8F8', height: '500px', marginLeft: '12px', marginRight: '12px'}}>
-            <div className="col-md-3 mt-4">
-                <p style={{fontSize: '14px', fontWeight: '600px'}}>Customer Details</p>
-                <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '10px'}}><Icon.UserIcon width={15} height={15}/>  Angie</p>
-                <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '10px'}}><Icon.PhoneIcon width={15} height={15}/>  +2348022332233</p>
-                <p style={{fontSize: '14px', fontWeight: '400px', marginBottom: '10px'}}><Icon.MailIcon width={15} height={15}/>  abc@gmail.com</p>
-            </div>
-            <div className="col-md-4 pt-4" style={{backgroundColor: '#FFF'}}>
-                <h4>Order Items</h4>
-                <br/>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
-                    <div>
-                        <p>King size burger</p>
-                        <span style={{color: '#6B6F7D', fontSize: '12px', position: 'relative', bottom: '15px'}}>16 pcs</span>
-                    </div>
-                    <div>
-                        <p>N300.00</p>
-                    </div>
+            <Link href={ORDER_MERCHANT_PAGE_ROUTE}>
+                <p style={{ marginLeft: '20px', cursor: 'pointer' }}><Icon.ArrowLeftIcon width={15} height={15} />Back</p>
+            </Link>
+            <div className="row" style={{ backgroundColor: '#F9F8F8', height: '500px', marginLeft: '12px', marginRight: '12px' }}>
+                {loading && <div className="mt-3"><Spinner /></div>}
+                <div className="col-md-3 mt-4">
+                    <p style={{ fontSize: '18px', fontWeight: '600px' }}>Customer Details</p>
+                    <p style={{ fontSize: '14px', fontWeight: '400px', marginBottom: '20px' }}><Icon.UserIcon width={15} height={15} /> {firstName} {lastName}</p>
+                    <p style={{ fontSize: '14px', fontWeight: '400px', marginBottom: '20px' }}><Icon.PhoneIcon width={15} height={15} /> {phone} </p>
+                    <p style={{ fontSize: '14px', fontWeight: '400px', marginBottom: '20px' }}><Icon.HomeIcon width={15} height={15} /> {address}</p>
                 </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
-                    <div>
-                        <p>King size burger</p>
-                        <span style={{color: '#6B6F7D', fontSize: '12px', position: 'relative', bottom: '15px'}}>16 pcs</span>
-                    </div>
-                    <div>
-                        <p>N300.00</p>
-                    </div>
+                <div className="col-md-4 pt-4" style={{ backgroundColor: '#FFF' }}>
+                    <p style={{ fontSize: '18px', fontWeight: '600px' }}>Order Items</p>
+                    <br />
+                    {orderItems && orderItems.map((order: {
+                        productName: string;
+                        quantity: number;
+                        price: number;
+                    }) => <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                            <div>
+                                <p>{order.productName}</p>
+                                <span style={{ color: '#6B6F7D', fontSize: '12px', position: 'relative', bottom: '15px' }}>{order.quantity}</span>
+                            </div>
+                            <div>
+                                <p>N{order.price}</p>
+                            </div>
+                        </div>
+                    )}
                 </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
-                    <div>
-                        <p>King size burger</p>
-                        <span style={{color: '#6B6F7D', fontSize: '12px', position: 'relative', bottom: '15px'}}>16 pcs</span>
+                <div className="col-md-4 mt-4">
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div>
+                            <p>Status</p>
+                        </div>
+                        <div>
+                            <span className={orderStyles.delivered}>{status}</span>
+                        </div>
                     </div>
-                    <div>
-                        <p>N300.00</p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div>
+                            <p>Order number</p>
+                        </div>
+                        <div>
+                            <p>{orderNumber}</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div className="col-md-4 mt-4">
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingLeft: '20px'}}>
-                    <div>
-                        <p>Status</p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div>
+                            <p>Date</p>
+                        </div>
+                        <div>
+                            <p></p>
+                        </div>
                     </div>
-                    <div>
-                        <span className={orderStyles.delivered}>Delivered</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div>
+                            <p>Discount</p>
+                        </div>
+                        <div>
+                            <p></p>
+                        </div>
                     </div>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingLeft: '20px'}}>
-                    <div>
-                        <p>Order number</p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div>
+                            <p>Delivery charge</p>
+                        </div>
+                        <div>
+                            <p></p>
+                        </div>
                     </div>
-                    <div>
-                        <p>#18352</p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div>
+                            <p>Total amount</p>
+                        </div>
+                        <div>
+                            <p>N{total.toLocaleString()}</p>
+                        </div>
                     </div>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingLeft: '20px'}}>
-                    <div>
-                        <p>Date</p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div>
+                            <p>Time of delivery</p>
+                        </div>
+                        <div>
+                            <p></p>
+                        </div>
                     </div>
-                    <div>
-                        <p>April 4, 2022</p>
-                    </div>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingLeft: '20px'}}>
-                    <div>
-                        <p>Discount</p>
-                    </div>
-                    <div>
-                        <p>N500.00</p>
-                    </div>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingLeft: '20px'}}>
-                    <div>
-                        <p>Delivery charge</p>
-                    </div>
-                    <div>
-                        <p>N1,000.00</p>
-                    </div>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingLeft: '20px'}}>
-                    <div>
-                        <p>Total amount</p>
-                    </div>
-                    <div>
-                        <p>N4,500.00</p>
-                    </div>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingLeft: '20px'}}>
-                    <div>
-                        <p>Time of delivery</p>
-                    </div>
-                    <div>
-                        <p>15:45pm</p>
-                    </div>
-                </div>
-                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingLeft: '20px'}}>
-                    <div>
-                        <p>Delivery address</p>
-                    </div>
-                    <div style={{marginLeft: '50px'}}>
-                        <p>10 Tamedo Street, Surulere, Lagos.</p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                        <div>
+                            <p>Delivery address</p>
+                        </div>
+                        <div style={{ marginLeft: '50px', position: 'relative', left: '50px' }}>
+                            <p>{address}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </>
     )
 }

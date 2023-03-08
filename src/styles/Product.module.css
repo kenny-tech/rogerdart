@@ -391,7 +391,7 @@
 .searchInput{
     margin: 0;
     padding:.5rem;
-    width: 100%;
+    width: 95%;
     border: none;
 }
 .searchInputDiv {
@@ -653,7 +653,7 @@
 
   .checkoutBox {
     width: 330px;
-    height: 450px;
+    height: 465px;
     border: solid #CED9E899;
     padding: 15px;
   }
@@ -798,6 +798,7 @@
 @media (max-width: 600px) {
     .cartContainer{
         width: 100%;
+        z-index: -1;
     }
     .cartDiv{
       width: 100%;
@@ -847,6 +848,18 @@
       .variantText {
         font-size: 12px;
       }
+      .searchInputDiv {
+        width: 90%;
+    }
+    .searchInput{
+      width: 80%;  
+      font-size: 14px;
+    }
+    .menuDiv {
+      width: 220px;
+      height: 200px;
+      z-index: 0;
+  }
     
 }
 

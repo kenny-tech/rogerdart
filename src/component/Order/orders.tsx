@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import Image from "next/image";
-import { PUBLIC_BASE_URL, ORDERS_PUBLIC_API_ROUTE, PAGE_ROUTE_SIGN_IN, ORDER_DETAIL_PAGE_ROUTE } from "@src/services/routes";
+import * as Icon from "@heroicons/react/outline";
+import { PUBLIC_BASE_URL, ORDERS_PUBLIC_API_ROUTE, ORDER_DETAIL_PAGE_ROUTE } from "@src/services/routes";
 import axios from "axios";
 import { orderStyles } from "@src/styles";
 import { Spinner } from "@src/component";
 import Pagination from "../Pagination";
+import { orderStatus } from "@src/constants";
 
 const Orders: NextPage = () => {
 
@@ -17,7 +18,7 @@ const Orders: NextPage = () => {
     const [orders, setOrders] = useState<any>([]);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [recordsPerPage] = useState(10);
+    const [recordsPerPage] = useState(15);
 
     const headers = {
         'Content-Type': 'application/json',
@@ -25,13 +26,25 @@ const Orders: NextPage = () => {
     }
 
     useEffect(() => {
-        getOrders();
+        getOrders('All');
     }, []);
 
-    const getOrders = async () => {
+    const getOrders = async (orderStatus='All') => {
         try {
+            let orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}`;
+            
             setLoading(true);
-            await axios.get(`${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}`, {
+            if(orderStatus === 'Pending') {
+                orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}?status=pending`
+            } else if(orderStatus === 'Processing') {
+                orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}?status=paid`
+            } else if(orderStatus === 'Delivered') {
+                orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}?status=paid`
+            } else {
+                orderUrl = `${PUBLIC_BASE_URL}${ORDERS_PUBLIC_API_ROUTE}`
+            }
+
+            await axios.get(orderUrl, {
                 headers: headers
             })
                 .then((response) => {
@@ -48,6 +61,30 @@ const Orders: NextPage = () => {
             console.log(error);
             setLoading(false);
         }
+    }
+
+    const handleOrderClick = (order_no: any) => {
+        Router.push({
+            pathname: `${ORDER_DETAIL_PAGE_ROUTE}`,
+            query: { order_no: order_no },
+            // query: { order_no: order_no, data: JSON.stringify(orders) },
+        }, `${ORDER_DETAIL_PAGE_ROUTE}`);
+    }
+
+    const handleFilterOrder = (e:any) => {
+        let orderStatus = e.target.value;
+        if(orderStatus === 'All') {
+            getOrders(orderStatus);
+        } else if (orderStatus === 'Pending') {
+            getOrders(orderStatus);
+        } else if (orderStatus === 'Processing') {
+            getOrders(orderStatus); 
+        } else if (orderStatus === 'Delivered') {
+            getOrders(orderStatus); 
+        } else {
+            getOrders('All'); 
+        }
+
     }
 
     const indexOfLastRecord = currentPage * recordsPerPage;
@@ -144,6 +181,28 @@ const Orders: NextPage = () => {
                         </div>
                     </div>
                </div> */}
+                <div className="row mb-3">
+                    <div className="col-md-4">
+                        <div className={orderStyles.searchInputDiv}>
+                            <Icon.SearchIcon className={orderStyles.searchIcon}/>
+                            <input placeholder='Search by restaurant' type={'text'} name='address' className={orderStyles.searchInput}/>
+                        </div>
+                    </div>
+                    <div className="col-md-4 mb-2">
+                        <select className="form-control" onChange={(e) => handleFilterOrder(e)}>
+                            {orderStatus && orderStatus.map((status:{
+                                    id: React.Key | number ;
+                                    name: string;
+                                })=><option value={status.name} key={status.id}>{status.name}</option>
+                            )}
+                        </select>
+                    </div>
+                    <div className="col-md-4">
+                        <select className="form-control">
+                            <input placeholder='Sort by Date' type={'date'} name='date' className={orderStyles.searchInput} />
+                        </select>
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col-md-12">
                         <div style={{ marginLeft: '-10px', marginRight: '10px' }}>
@@ -164,21 +223,14 @@ const Orders: NextPage = () => {
                                         orderNo: string | number;
                                         totalPrice: number;
                                         status: string
-                                    }) => <Link href={{
-                                        pathname: ORDER_DETAIL_PAGE_ROUTE,
-                                        query: {
-                                            orderNo: order.orderNo,
-                                        },
-                                    }}>
-                                            <tr style={{ cursor: 'pointer' }}>
+                                    }) => <tr style={{ cursor: 'pointer' }} onClick={() => handleOrderClick(order.orderNo)}>
                                                 <th style={{ fontWeight: 'normal' }} className="d-none d-sm-table-cell">{order.delivery.firstName}</th>
                                                 <td>{order.orderNo}</td>
                                                 <td>{order.totalPrice}</td>
                                                 <td className="d-none d-sm-table-cell">24th Apr, 2022</td>
                                                 <td><span className={orderStyles.processing}>{order.status}</span></td>
                                                 <td className="d-none d-sm-table-cell">{'>'}</td>
-                                            </tr>
-                                        </Link>
+                                        </tr>
                                     )}
                                     {/* <Link href={ORDER_DETAIL_PAGE_ROUTE}>
                                         <tr style={{ cursor: 'pointer' }}>

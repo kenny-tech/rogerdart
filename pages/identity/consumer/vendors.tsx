@@ -180,7 +180,7 @@ const Vendors: NextPage = () => {
             </Head>
             <div>
                 <Navigation />
-                <div className={vendorlistStyles.shopBanner} style={{backgroundImage:`url(/uploads/banner-1647019268400.jpg)`}}></div>
+                <div className={vendorlistStyles.shopBanner} style={{backgroundImage:`url(/uploads/banner-1650623616133.jpg)`}}></div>
                 <div className={vendorlistStyles.searchInputDiv}>
                     <Icon.SearchIcon className={vendorlistStyles.searchIcon}/>
                     <input placeholder='Type something to search' type={'text'} name='address' className={vendorlistStyles.searchInput} />

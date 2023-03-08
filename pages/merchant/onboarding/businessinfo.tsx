@@ -212,13 +212,15 @@ const BusinessInfo: NextPage = () => {
                 headers: headers
             })
             .then((response) => {
-                console.log('Profile : ', response.data.data);
+                // console.log('Profile : ', response.data.data);
                 setBusinessName(response.data.data.kyc.businessName);
                 setBusinessRegNo(response.data.data.kyc.businessNumber);
                 setBusinessType(response.data.data.kyc.businessType);
                 setBusinessType(response.data.data.kyc.businessType);
                 setBvn(response.data.data.kyc.bvn);
                 setNin(response.data.data.kyc.nin);
+                setUtilityBillLink(response.data.data.kyc.utilityBill);
+                setDriverLicenceVoterCardLink(response.data.data.kyc.driverLicense);
                 setLoading(false);
             })
             .catch((error) => {
