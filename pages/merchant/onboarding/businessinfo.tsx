@@ -219,6 +219,8 @@ const BusinessInfo: NextPage = () => {
                 setBusinessType(response.data.data.kyc.businessType);
                 setBvn(response.data.data.kyc.bvn);
                 setNin(response.data.data.kyc.nin);
+                setUtilityBillLink(response.data.data.kyc.utilityBill);
+                setDriverLicenceVoterCardLink(response.data.data.kyc.driverLicense);
                 setLoading(false);
             })
             .catch((error) => {

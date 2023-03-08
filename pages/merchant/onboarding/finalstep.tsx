@@ -51,6 +51,7 @@ const FinalStep: NextPage = () => {
             .then((response) => {
                 console.log(response.data.data);
                 setPhone(response.data.data.phone);
+                setNinLink(response.data.data.kyc.identityVerification);
             })
             .catch((error) => {
                 console.log(error);
