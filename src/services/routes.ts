@@ -98,6 +98,8 @@ export const MERCHANT_GET_ORDERS_PUBLIC_API_ROUTE = 'vendor/orders/fetch';
 export const MERCHANT_ADD_COUPON_PUBLIC_API_ROUTE = 'vendor/coupon/add';
 export const MERCHANT_GET_COUPON_PUBLIC_API_ROUTE = 'vendor/coupons/fetch';
 export const MERCHANT_RATE_PUBLIC_API_ROUTE = 'vendor/rate';
+export const MERCHANT_PAYMENT_PUBLIC_API_ROUTE = 'payments/fetch';
+
 
 
 

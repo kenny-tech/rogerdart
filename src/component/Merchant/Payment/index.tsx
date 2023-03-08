@@ -6,13 +6,18 @@ import Search from "../Search";
 import { orderStyles } from "@src/styles";
 import Button from "../Button/buttonRightIcon";
 import { PAYMENT_DETAIL_MERCHANT_PAGE_ROUTE } from "@src/services/routes";
-import { PUBLIC_BASE_URL, MERCHANT_GET_PRODUCTS_PUBLIC_API_ROUTE } from "@src/services/routes";
+import { PUBLIC_BASE_URL, MERCHANT_PAYMENT_PUBLIC_API_ROUTE } from "@src/services/routes";
 import { errorAlert } from "@src/services/alert";
+import { Spinner } from "@src/component";
 
 const Payments: NextPage = () => {
 
   const [payments, setPayments] = useState([]);
+  const [loading, setLoading] = useState(false);
   const token = sessionStorage.getItem("merchantToken");
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(15);
 
   useEffect(() => {        
     getPayments();
@@ -25,10 +30,11 @@ const Payments: NextPage = () => {
   
   const getPayments = async () => {
       try {
-          await axios.get(`${PUBLIC_BASE_URL}${MERCHANT_GET_PRODUCTS_PUBLIC_API_ROUTE}`, {
+          await axios.get(`${PUBLIC_BASE_URL}${MERCHANT_PAYMENT_PUBLIC_API_ROUTE}`, {
               headers: headers
           })
           .then((response) => {
+            console.log('Payments: ', response.data.data);
             setPayments(response.data.data);
           })
           .catch((error) => {
@@ -39,6 +45,11 @@ const Payments: NextPage = () => {
           errorAlert(error.response.data.message);
       } 
   }
+
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  const currentRecords = payments.slice(indexOfFirstRecord, indexOfLastRecord);
+  const nPages = Math.ceil(payments.length / recordsPerPage);
 
     return (
         <>
@@ -60,6 +71,22 @@ const Payments: NextPage = () => {
                   <td className="d-none d-sm-table-cell">Date</td>
                   <td>Status</td>
                 </tr>
+                {loading && <div className="mt-3"><Spinner /></div>}
+                {/* {currentRecords && currentRecords.map((order: {
+                  _id: React.Key | string
+                  delivery: any;
+                  orderNo: string | number;
+                  totalPrice: number;
+                  status: string
+                }) => <tr style={{ cursor: 'pointer' }}>
+                    <th style={{ fontWeight: 'normal' }} className="d-none d-sm-table-cell">{order.delivery.firstName}</th>
+                    <td>{order.orderNo}</td>
+                    <td>{order.totalPrice}</td>
+                    <td className="d-none d-sm-table-cell">24th Apr, 2022</td>
+                    <td><span className={orderStyles.processing}>{order.status}</span></td>
+                    <td className="d-none d-sm-table-cell">{'>'}</td>
+                  </tr>
+                )} */}
                 <Link href={PAYMENT_DETAIL_MERCHANT_PAGE_ROUTE}>
                   <tr>
                     <th style={{fontWeight: 'normal'}}>Bank Transfer</th>
