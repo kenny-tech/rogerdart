@@ -46,7 +46,7 @@ import { errorAlert } from "@src/services/alert";
           }
        }
 
-       const handleChange = (e) => {
+       const handleChange = (e:any) => {
            const {name, value} = e.target;
            setDigit({
                ...digit,
