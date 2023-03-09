@@ -9,6 +9,7 @@ import { SIGN_IN_MERCHANT_PUBLIC_API_ROUTE } from '@src/services/routes';
 import Link from 'next/link';
 import AuthContext from '@src/services/authContext';
 import { EllipseAnimation } from '@src/component';
+import { states, cities } from "@src/constants";
 
 const MerchantSignup = () => {
 
@@ -38,6 +39,7 @@ const MerchantSignup = () => {
     })
 
     const [isLoading, setIsloading] = useState(false);
+    const [stateCities, setStateCities] = useState<any>([]);
 
     const handleChange = (e:any) => {
         const { name, value } = e.target;
@@ -109,6 +111,16 @@ const MerchantSignup = () => {
         }
     }
 
+    const handleStateChange = (e:any) =>{
+        setRegistrationDetails((prevState) => ({
+            ...prevState,
+            merchantState: e.target.value
+          }));
+        const result = cities.filter(city => city.state === e.target.value);
+        setStateCities(result);
+    }
+
+
     return (
         <div>
             <Head>
@@ -158,24 +170,24 @@ const MerchantSignup = () => {
                     </div>
                 </div>
                 <div className="row mb-3">
+                    <div className="col-md-6">
+                        <div className={signupStyles.inputText}>
+                            <label className="form-label">State</label>
+                            <select className="form-control" name="merchantState" onChange={(e) => handleStateChange(e)} value={registrationDetails.merchantState}>
+                                <option value="">Select State</option>
+                                {states && states.map((state:any)=><option value={state.name} key={state.id}>{state.name}</option>)}
+                            </select>
+                            {errors.merchantStateError &&  <span className={signupStyles.error}> {errors.merchantStateError} </span>}
+                        </div>
+                    </div>
                     <div className="col-md-6 mb-3">
                         <div className={signupStyles.inputText}>
                             <label className="form-label">City</label>
                             <select className="form-control" name="merchantCity" onChange={handleChange} value={registrationDetails.merchantCity}>
                                 <option value="">Select City</option>
-                                <option value="Ikeja">Ikeja</option>
+                                {stateCities && stateCities.map((city:any)=><option value={city.name} key={city.id}>{city.name}</option>)}
                             </select>
                             {errors.merchantCityError &&  <span className={signupStyles.error}> {errors.merchantCityError} </span>}
-                        </div>
-                    </div>
-                    <div className="col-md-6">
-                        <div className={signupStyles.inputText}>
-                            <label className="form-label">State</label>
-                            <select className="form-control" name="merchantState" onChange={handleChange} value={registrationDetails.merchantState}>
-                                <option value="">Select State</option>
-                                <option value="Lagos">Lagos</option>
-                            </select>
-                            {errors.merchantStateError &&  <span className={signupStyles.error}> {errors.merchantStateError} </span>}
                         </div>
                     </div>
                 </div>
