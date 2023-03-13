@@ -94,6 +94,68 @@
       box-shadow: 7px 10px 11px -9px rgba(0,0,0,0.66);
   }
 
+  .searchDiv {
+    width: 400px; 
+    height: 40px; 
+    border-radius: 40px;
+    margin-left: 10px;
+    border-radius: 40px;
+    border:1px solid #E0E0E0;
+    position: relative;
+    left: 200px;
+  }
+
+  .searchButton {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #E03226;
+    float: right;
+  }
+
+  .searchTextbox{
+    margin: 0;
+    padding:.5rem;
+    width: 76%;
+    height: 30px;
+    border: none;
+    position: relative;
+    top: 3px;
+    margin-left: 10px;
+  }
+
+  .searchText {
+    color: #fff;
+    font-size: 14px; 
+    padding-top: 15px;
+  }
+
+  .searchButon {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 32px;
+    border-radius: 30px;
+    background-color: #E03226;
+    float: right;
+    position: relative;
+    top: 3px;
+    right: 3px
+  }
+
+  .logoDiv {
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start;
+    margin-right: 30px;
+  }
+  
+
+
   @keyframes slide {
     0% {
       opacity: 0;
@@ -872,6 +934,22 @@
 .imageFilter{
   filter: opacity(70%);
 }
+.circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #E03226;
+  position: relative;
+  bottom: 10px;
+  right: 10px;
+}
+.circleText {
+  font-size: 10px;
+  color: #fff;
+  position: relative;
+  bottom: 7px;
+  left: 5px;
+}
 
 @media (max-width: 600px){
   .leftMenu > a > span{
@@ -880,6 +958,9 @@
   .navbar{
     align-items: flex-start;
     justify-content: flex-start
+}
+.searchDiv {
+ display: none;
 }
 
 }

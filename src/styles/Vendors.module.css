@@ -184,7 +184,7 @@
 .searchInput{
     margin: 0;
     padding:.5rem;
-    width: 100%;
+    width: 97%;
     border: none;
 }
 .searchInputDiv {
@@ -193,7 +193,7 @@
     margin-top: 20px;
     display: flex;
     border: 40px;
-    width: 97%;
+    width: 95%;
     height:40px;
     border:1px solid rgb(235, 235, 235);
     border-radius: 40px;
@@ -273,6 +273,18 @@
     background-color: #DE3820;
     margin-left: 30px;
     margin-bottom: 10px;
+}
+.bannerContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.banner {
+    width: 1380px;
+    height: 250px;
+    background-color: #DE3820;
+    margin-left: 20px;
+    margin-top: 70px;
 }
 @media (max-width: 600px) {
     .grid{
